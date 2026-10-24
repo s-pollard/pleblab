@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} | /pleblab/</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body{% if pageClass %} class="{{ pageClass }}"{% endif %}>
+  <aside>
+    <h1><a href="/">/pleblab/</a></h1>
+    <nav>
+      <a href="/" {% if page.url == "/" %}class="active"{% endif %}>home</a>
+      <a href="/projects/" {% if page.url and page.url.startsWith("/projects/") %}class="active"{% endif %}>projects</a>
+      <a href="/notes/" {% if page.url and page.url.startsWith("/notes/") %}class="active"{% endif %}>notes</a>
+      <a href="/lab/" {% if page.url and page.url.startsWith("/lab/") %}class="active"{% endif %}>lab</a>
+      <a href="/gear/" {% if page.url and page.url.startsWith("/gear/") %}class="active"{% endif %}>gear</a>
+      <a href="/videos/" {% if page.url and page.url.startsWith("/videos/") %}class="active"{% endif %}>videos</a>
+      <a href="/about/" {% if page.url and page.url.startsWith("/about/") %}class="active"{% endif %}>about</a>
+      <a class="nav-util" href="/sitemap/">site map</a>
+    </nav>
+  </aside>
+
+  <main>
+    <div class="breadcrumbs">
+      {% if breadcrumbs %}
+        {% for crumb in breadcrumbs %}
+          {% if crumb.url %}<a href="{{ crumb.url }}">{{ crumb.label }}</a>{% else %}{{ crumb.label }}{% endif %}
+          {% if not loop.last %} &gt; {% endif %}
+        {% endfor %}
+      {% else %}
+        <a href="/">home</a>
+      {% endif %}
+    </div>
+
+    {{ content | safe }}
+  </main>
+</body>
+</html>
