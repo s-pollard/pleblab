@@ -1,5 +1,5 @@
 :root {
-  --font-jp: "BIZ UDPGothic", "MS PGothic", "ＭＳ Ｐゴシック", "Noto Sans JP", sans-serif;
+  --font-mono: "IBM Plex Mono", "JetBrains Mono", "Cascadia Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 
   --paper: #1a1b26;
   --panel: #16161e;
@@ -18,10 +18,10 @@
 
 body {
   margin: 0;
-  font-family: var(--font-jp);
+  font-family: var(--font-mono);
   font-size: 16px;
   line-height: 1.9;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   display: grid;
   grid-template-columns: 170px minmax(0, 1fr);
   min-height: 100vh;
@@ -82,12 +82,12 @@ main a:hover { border-bottom-color: var(--purple); }
   line-height: 1.5;
   color: var(--muted);
   margin-bottom: 24px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
 }
 
 h1, h2, h3 {
   font-weight: normal;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   margin-top: 1.5em;
   margin-bottom: 0.65em;
 }
@@ -108,7 +108,7 @@ li { margin-bottom: 0.35em; }
 li::marker { color: var(--yellow); }
 
 pre, code, kbd, samp {
-  font-family: "BIZ UDGothic", "MS Gothic", monospace;
+  font-family: var(--font-mono);
 }
 
 code { font-size: 0.95em; }
